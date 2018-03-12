@@ -83,6 +83,6 @@ aggregate <- function(population, variables, strata, operation="mean",
 
   population %>%
     dplyr::group_by_(.dots = strata) %>%
-    dplyr::summarise_at(.funs = aggregating_function, .vars = variables) %>%
+    dplyr::summarise_at(.funs = aggregating_function, .vars = variables, na.rm = TRUE) %>%
     dplyr::ungroup()
 }
